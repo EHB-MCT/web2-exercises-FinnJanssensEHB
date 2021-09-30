@@ -4,10 +4,11 @@
 
 body {
   display: flex;
+  flex-direction: column;
+  padding: 2em;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  padding: 2em;
 }
