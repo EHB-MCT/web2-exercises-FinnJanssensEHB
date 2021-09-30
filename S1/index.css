@@ -1,0 +1,13 @@
+:root {
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+}
