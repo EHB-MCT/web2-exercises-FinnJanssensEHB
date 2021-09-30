@@ -1,9 +1,26 @@
 'use strict;'
 
+const dishes = [];
+dishes.push({
+  id: '1',
+  name: 'Burger and french fries',
+  price: '18'
+})
+dishes.push({
+  id: '2',
+  name: 'Pizza Salami',
+  price: '14'
+})
+dishes.push({
+  id: '3',
+  name: 'Chicken nuggets and french fries',
+  price: '15'
+})
+
 window.onload = function () {
   console.log("loaded");
-  const submitBtn = document.getElementById("submit");
-  submitBtn.addEventListener("click", formEventListener);
+  const form = document.getElementById('form');
+  form.addEventListener('submit', formEventListener);
 }
 
 function formEventListener(e) {
