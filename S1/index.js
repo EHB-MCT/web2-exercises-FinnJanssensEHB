@@ -12,6 +12,19 @@ function formEventListener(e) {
   let name = document.getElementById("name").value;
   let email = document.getElementById("email").value;
   let order = document.getElementById("order").value;
+  let orderDetails = {
+    name,
+    email,
+    order
+  };
+  printOrder(orderDetails);
+}
+
+let printOrder = ({
+  name,
+  order,
+  email
+}) => {
   let finalText = document.getElementById("finalText");
   finalText.innerHTML = `The order for the customer ${name} is the following:  ${order}. The customer may be notified by email:  ${email}`;
 }
