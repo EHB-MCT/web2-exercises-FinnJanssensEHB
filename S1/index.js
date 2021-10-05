@@ -19,6 +19,7 @@ dishes.push({
 
 window.onload = function () {
   console.log("loaded");
+  generateDishOptions();
   const form = document.getElementById('form');
   form.addEventListener('submit', formEventListener);
 }
@@ -28,13 +29,25 @@ function formEventListener(e) {
   console.log("Submit button was clicked");
   let name = document.getElementById("name").value;
   let email = document.getElementById("email").value;
-  let order = document.getElementById("order").value;
+  let order = document.querySelector('input[name="dish"]:checked').value;
   let orderDetails = {
     name,
     email,
     order
   };
   printOrder(orderDetails);
+}
+
+function generateDishOptions() {
+  const orderContainer = document.getElementById('orderContainer');
+  let radioButtons = "";
+  dishes.forEach(dish => {
+    radioButtons += `
+      <input type="radio" id="dish${dish.id}" name="dish" value="${dish.name}">
+      <label for="dish${dish.id}">${dish.name}</label><br>
+    `;
+  });
+  orderContainer.innerHTML = radioButtons;
 }
 
 let printOrder = ({
