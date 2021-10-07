@@ -3,7 +3,9 @@
 class Pokemon {
   constructor(fetchedPokemon) {
     this.name = fetchedPokemon.name;
-    this.url = fetchedPokemon.url;
+    this.id = fetchedPokemon.id;
+    this.types = fetchedPokemon.types;
+    this.sprite = fetchedPokemon.sprites.front_default;
   }
 }
 
