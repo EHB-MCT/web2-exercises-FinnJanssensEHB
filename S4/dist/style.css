@@ -1,0 +1,13 @@
+body {
+  margin: 5em;
+}
+
+form {
+  width: 500px;
+}
+
+.jumbotron {
+  margin-top: 2em;
+  width: 500px;
+  display: none;
+}
