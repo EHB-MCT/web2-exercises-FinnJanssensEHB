@@ -6,17 +6,15 @@ let pokemons = [];
 
 window.onload = function () {
   fetchPokemons().then(data => {
-    let fillPokemonArray = new Promise((resolve, reject) => {
-      data.results.forEach(pokemon => {
-        fetchPokemonData(pokemon).then(data2 => {
-          let newPokemon = new Pokemon(data2);
-          pokemons.push(newPokemon);
-        })
-      });
-    });
-    fillPokemonArray.then(() => {
-      sortPokemons();
-      renderList();
+    console.log(data);
+    for (const pokemon of data.results) {
+      fetchPokemonData(pokemon).then(data2 => {
+        let newPokemon = new Pokemon(data2);
+        pokemons.push(newPokemon);
+      })
+    }
+    pokemons.sort(function (a, b) {
+      return a.id - b.id;
     });
   });
 }
@@ -33,9 +31,10 @@ async function fetchPokemonData(pokemon) {
   return data2;
 }
 
-function sortPokemons() {
-  pokemons.sort(function (a, b) {
-    console.log(a.id);
-    return b.id - a.id;
-  })
+function renderList() {
+  console.log("renderList");
+  pokemons.forEach(pokemon => {
+    console.log(pokemon.getHTML());
+    // document.getElementById("listContainer").insertAdjacentHTML(pokemon.getHTML());
+  });
 }
