@@ -1,0 +1,19 @@
+{
+  "name": "sexy-graphs",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.59.1",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "chart.js": "^3.5.1",
+    "lodash": "^4.17.21"
+  }
+}
