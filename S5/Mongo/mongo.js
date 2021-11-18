@@ -1,4 +1,5 @@
 import * as mdb from 'mongodb';
+import * as fs from 'fs/promises'
 
 const uri = "mongodb+srv://admin:admin@cluster0.j2k5j.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new mdb.MongoClient(uri, {
@@ -18,6 +19,25 @@ async function main() {
 
   const findResult = await collection.find({}).toArray();
   console.log('Found documents =>', findResult);
+
+  let gloomhaven = await fs.readFile("./gloomhaven.json");
+  console.log(typeof (gloomhaven));
+  const insertResult = await collection.insertOne(JSON.parse(gloomhaven));
+  console.log('Inserted documents =>', insertResult);
+
+  const updateResult = await collection.updateOne({
+    "name": "Gloomhaven"
+  }, {
+    $set: {
+      "name": "Gloominghaven"
+    }
+  });
+  console.log('Updated documents =>', updateResult);
+
+  const deleteResult = await collection.deleteOne({
+    "name": "Gloominghaven"
+  });
+  console.log('Deleted documents =>', deleteResult);
 
   return 'done.';
 }
